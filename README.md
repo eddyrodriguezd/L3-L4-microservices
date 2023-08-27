@@ -40,7 +40,7 @@ El uso de un IDE u otro, así como de un cliente de base de datos, es una cuesti
 ![Variables de ambiente en Postman](images/postman-env.png)
 
 
-## Durante de la sesión
+## Durante la sesión
 
 ### Desarrollo del Microservicio de Cuentas (Accounts)
 
