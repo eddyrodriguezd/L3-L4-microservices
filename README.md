@@ -40,8 +40,10 @@ El uso de un IDE u otro, así como de un cliente de base de datos, es una cuesti
 ![Variables de ambiente en Postman](images/postman-env.png)
 
 
-## Desarrollo del Microservicio de Cuentas
+## Durante de la sesión
 
-Durante la sesión de laboratorio, trabajaremos en la creación de un microservicio de cuentas como parte de la arquitectura general.
+### Desarrollo del Microservicio de Cuentas (Accounts)
+
+Durante la sesión de laboratorio, trabajaremos en la creación de un microservicio en Java y Spring como parte de una arquitectura de microservicios.
 
 **Nota**: Esta sección proporciona solo un resumen de lo que se abordará en el laboratorio. Se recomienda asistir a la sesión para obtener detalles completos y guía práctica.
