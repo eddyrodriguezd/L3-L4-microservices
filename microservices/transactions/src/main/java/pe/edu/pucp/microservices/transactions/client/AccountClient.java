@@ -26,7 +26,7 @@ public class AccountClient {
         this.objectMapper = objectMapper;
     }
 
-    public AccountDto getAccount(String accountId) throws Exception {
+    public AccountDto getAccount(Long accountId) throws Exception {
         String url = accountsApiUrl + accountId;
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
@@ -44,7 +44,7 @@ public class AccountClient {
         }
     }
 
-    public void updateAccountBalance(String accountId, double balance) throws Exception {
+    public void updateAccountBalance(Long accountId, double balance) throws Exception {
         String url = accountsApiUrl + accountId;
 
         UpdateBalanceDto updateBalanceDto = new UpdateBalanceDto();

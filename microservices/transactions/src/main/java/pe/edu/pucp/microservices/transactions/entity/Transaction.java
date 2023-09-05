@@ -20,7 +20,7 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String accountId;
+    private Long accountId;
     private TransactionType transactionType;
     private double amount;
     private LocalDateTime createdAt;

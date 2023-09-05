@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TransactionCreateDto {
-    private String accountId;
+    private Long accountId;
     private double amount;
 }
