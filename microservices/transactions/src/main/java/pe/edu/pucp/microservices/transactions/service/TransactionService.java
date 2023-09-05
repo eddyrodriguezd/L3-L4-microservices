@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.pucp.microservices.transactions.client.AccountClient;
 import pe.edu.pucp.microservices.transactions.dto.AccountDto;
 import pe.edu.pucp.microservices.transactions.dto.TransactionCreateDto;
+import pe.edu.pucp.microservices.transactions.dto.UpdateBalanceDto;
 import pe.edu.pucp.microservices.transactions.entity.Transaction;
 import pe.edu.pucp.microservices.transactions.enums.TransactionType;
 import pe.edu.pucp.microservices.transactions.repository.TransactionRepository;
@@ -44,10 +45,9 @@ public class TransactionService {
         }
 
         // Update balance
-        accountClient.updateAccountBalance(
-                transactionCreateDto.getAccountId(),
-                accountDto.getBalance() + (transactionCreateDto.getAmount() * (transactionType.equals(TransactionType.WITHDRAW) ? -1 : 1))
-        );
+        UpdateBalanceDto updateBalanceDto = new UpdateBalanceDto();
+        updateBalanceDto.setBalance(accountDto.getBalance() + (transactionCreateDto.getAmount() * (transactionType.equals(TransactionType.WITHDRAW) ? -1 : 1)));
+        accountClient.updateAccountBalance(transactionCreateDto.getAccountId(), updateBalanceDto);
 
         // Call repository layer to save in database
         Transaction createdTransaction = transactionRepository.save(transaction);

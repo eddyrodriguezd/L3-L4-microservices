@@ -44,11 +44,8 @@ public class AccountClient {
         }
     }
 
-    public void updateAccountBalance(Long accountId, double balance) throws Exception {
+    public void updateAccountBalance(Long accountId, UpdateBalanceDto updateBalanceDto) throws Exception {
         String url = accountsApiUrl + accountId;
-
-        UpdateBalanceDto updateBalanceDto = new UpdateBalanceDto();
-        updateBalanceDto.setBalance(balance);
 
         HttpEntity<?> requestEntity = new HttpEntity<>(updateBalanceDto, null);
 
