@@ -53,19 +53,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/users/:user_id",
+							"raw": "{{API_URL}}/users",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
-								"users",
-								":user_id"
-							],
-							"variable": [
-								{
-									"key": "user_id",
-									"value": "dc557e9c-a843-4656-a8ae-4393469e6574"
-								}
+								"users"
 							]
 						}
 					},
@@ -234,9 +227,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_LOCAL_URL}}/accounts",
+							"raw": "{{API_LOCAL_URL_8080}}/accounts",
 							"host": [
-								"{{API_LOCAL_URL}}"
+								"{{API_LOCAL_URL_8080}}"
 							],
 							"path": [
 								"accounts"
@@ -257,19 +250,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_LOCAL_URL}}/accounts/:account_id",
+							"raw": "{{API_LOCAL_URL_8080}}/accounts",
 							"host": [
-								"{{API_LOCAL_URL}}"
+								"{{API_LOCAL_URL_8080}}"
 							],
 							"path": [
-								"accounts",
-								":account_id"
-							],
-							"variable": [
-								{
-									"key": "account_id",
-									"value": "2"
-								}
+								"accounts"
 							]
 						}
 					},
@@ -287,9 +273,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_LOCAL_URL}}/accounts/:account_id",
+							"raw": "{{API_LOCAL_URL_8080}}/accounts/:account_id",
 							"host": [
-								"{{API_LOCAL_URL}}"
+								"{{API_LOCAL_URL_8080}}"
 							],
 							"path": [
 								"accounts",
@@ -326,9 +312,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_LOCAL_URL}}/accounts/:account_id",
+							"raw": "{{API_LOCAL_URL_8080}}/accounts/:account_id",
 							"host": [
-								"{{API_LOCAL_URL}}"
+								"{{API_LOCAL_URL_8080}}"
 							],
 							"path": [
 								"accounts",
@@ -337,7 +323,7 @@
 							"variable": [
 								{
 									"key": "account_id",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -356,9 +342,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_LOCAL_URL}}/accounts/:account_id",
+							"raw": "{{API_LOCAL_URL_8080}}/accounts/:account_id",
 							"host": [
-								"{{API_LOCAL_URL}}"
+								"{{API_LOCAL_URL_8080}}"
 							],
 							"path": [
 								"accounts",
@@ -369,6 +355,216 @@
 									"key": "account_id",
 									"value": ""
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "[C] Crear transacción de retiro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": 1,\r\n    \"amount\": 20.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_LOCAL_URL_9090}}/transactions/withdraw",
+							"host": [
+								"{{API_LOCAL_URL_9090}}"
+							],
+							"path": [
+								"transactions",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[C] Crear transacción de depósito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": 1,\r\n    \"amount\": 20.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_LOCAL_URL_9090}}/transactions/deposit",
+							"host": [
+								"{{API_LOCAL_URL_9090}}"
+							],
+							"path": [
+								"transactions",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[R] Obtener todas las transacciones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_LOCAL_URL_9090}}/transactions",
+							"host": [
+								"{{API_LOCAL_URL_9090}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zuul",
+			"item": [
+				{
+					"name": "[C] Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"dc557e9c-a843-4656-a8ae-4393469e6574\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_LOCAL_URL_8090}}/accounts",
+							"host": [
+								"{{API_LOCAL_URL_8090}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[R] Obtener todas las cuentas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_LOCAL_URL_8090}}/accounts",
+							"host": [
+								"{{API_LOCAL_URL_8090}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[C] Crear transacción de depósito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": 1,\r\n    \"amount\": 20.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_LOCAL_URL_8090}}/transactions/deposit",
+							"host": [
+								"{{API_LOCAL_URL_8090}}"
+							],
+							"path": [
+								"transactions",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[R] Obtener todas las transacciones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_LOCAL_URL_8090}}/transactions",
+							"host": [
+								"{{API_LOCAL_URL_8090}}"
+							],
+							"path": [
+								"transactions"
 							]
 						}
 					},
