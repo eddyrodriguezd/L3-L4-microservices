@@ -8,6 +8,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Transient;
 
 import java.time.LocalDateTime;
 
@@ -24,6 +25,9 @@ public class Account {
     private String userId;
     private double balance;
     private LocalDateTime createdAt;
+
+    @Transient
+    private int port;
 
     @PrePersist
     private void prePersist() {
